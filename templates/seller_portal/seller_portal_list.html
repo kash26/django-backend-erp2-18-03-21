@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1>Sellers List Page</h1>
+	{% for message in messages %}
+		<p id="messages">{{message}}</p>
+	{% endfor %}
+    <hr>
+	<div class="col-md-9">
+		<h5>SELLERS LIST</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'register_seller' %}">Create Seller</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>email</th>
+					<th>Date</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for seller in sellers %}
+					<tr>
+						<td>{{ seller.name }}</td>
+						<td>{{ seller.phone }}</td>
+						<td>{{ seller.email }}</td>
+						<td>{{ seller.date_created }}</td>
+						<td><a type="button" href="{% url 'update_seller' seller.id %}" class="btn btn-primary btn-sm">Update</a></td>
+						<td><a type="button" href="{% url 'delete_seller' seller.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+{% endblock %}

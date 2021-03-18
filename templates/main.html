@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ERP2</title>
+    <!-- Bootstrap css file -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?{% now 'U' %}" />
+      <!-- font awesome icons -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}?{% now 'U' %}" />
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?{% now 'U' %}" />
+    <style>
+        @font-face {
+            font-family: Dancing;
+            src: local('Dancing'), url({% static 'fonts/DancingScript-VariableFont_wght.ttf' %});
+           }
+           @font-face {
+            font-family: Poppins;
+            src: local('Dancing'), url({% static 'fonts/Poppins-Regular.ttf' %});
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <hr>
+    {% include 'footer.html' %}
+</body>
+</html>

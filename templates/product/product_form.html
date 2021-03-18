@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+    <h1>Product Form Page</h1>
+
+    <hr>
+
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <h5>CREATE A NEW PRODUCT</h5>
+		    <hr>
+            <div class="card card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    {{ form.name.label }}
+                    {{ form.name }}
+                    <hr>
+                    {{ form.price.label }}
+                    {{ form.price }}
+                    <hr>
+                    {{ form.description.label }}
+                    {{ form.description }}
+                    <hr>
+                    {{ form.quantity.label }}
+                    {{ form.quantity }}
+                    <hr>
+                    <input class="btn btn-primary" type="submit" name="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1>Shop Dashboard</h1>
+
+    <hr>
+	<div class="col-md-9">
+		<h5>LAST ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Seller</th>
+					<th>Description</th>
+					<th>Date</th>
+				</tr>
+				{% for order in orders %}
+					<tr>
+						<td>{{ order.product.name }}</td>
+						<td>{{ order.seller }}</td>
+						<td>{{ order.description }}</td>
+						<td>{{ order.date_created }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-9 mt-3">
+		<h5>PRODUCTS LIST</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Description</th>
+					<th>Quantity</th>
+					<th>Date</th>
+				</tr>
+				{% for product in products %}
+					<tr>
+						<td>{{ product.name }}</td>
+						<td>{{ product.price }}</td>
+						<td>{{ product.description }}</td>
+						<td>{{ product.quantity }}</td>
+						<td>{{ product.date_created }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-9 mt-3">
+		<h5>SELLERS LIST</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Date</th>
+				</tr>
+				{% for seller in sellers %}
+					<tr>
+						<td>{{ seller.name }}</td>
+						<td>{{ seller.phone }}</td>
+						<td>{{ seller.email }}</td>
+						<td>{{ seller.date_created }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+<div class="col-md-9 mt-3">
+		<h5>SELLERS LIST</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Date</th>
+				</tr>
+				{% for shop in shops %}
+					<tr>
+						<td>{{ shop.name }}</td>
+						<td>{{ shop.phone }}</td>
+						<td>{{ shop.email }}</td>
+						<td>{{ shop.date_created }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+{% endblock %}
